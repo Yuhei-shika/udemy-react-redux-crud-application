@@ -1,0 +1,19 @@
+{
+  "name": "udemy-react-redux-crud-application",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Yuhei-shika/udemy-react-redux-crud-application.git",
+  "author": "Yuhei-shika <shikanono.1@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-scripts": "1.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  }
+}
