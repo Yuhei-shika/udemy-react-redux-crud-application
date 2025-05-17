@@ -13,6 +13,13 @@ class EventsShow extends Component {
     this.onDeleteClick = this.onDeleteClick.bind(this)
   }
 
+  componentDidMount() {
+    const { id } = this.props.match.params
+    if (id) {
+      this.props.getEvent(id)
+    }
+  }
+
   renderField(field) {
     const { input, label, type, meta: { touched, error } } = field
 
@@ -62,9 +69,12 @@ const validate = (values) => {
   if (!values.body) errors.body = "Enter a body"
   return errors
 }
+const mapStateToProps = (state, ownProps) => {
+  const event = state.events[ownProps.match.params.id]
+  return { initialValues: event, event }
+}
+const mapDispatchToProps = ({deleteEvent, getEvent})
 
-const mapDispatchToProps = ({deleteEvent})
-
-export default connect(null, mapDispatchToProps)(
-  reduxForm({form: 'eventShowForm', validate})(EventsShow)
+export default connect(mapStateToProps, mapDispatchToProps)(
+  reduxForm({form: 'eventShowForm', enableReinitialize: true, validate})(EventsShow)
 )
