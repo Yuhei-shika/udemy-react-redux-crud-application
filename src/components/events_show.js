@@ -43,23 +43,25 @@ class EventsShow extends Component {
   }
 
   render() {
-    const { handleSubmit,pristine,submitting } = this.props
-
+    console.log('initialValues:', this.props.initialValues); // ← ここ！
+  
+    const { handleSubmit, pristine, submitting } = this.props;
+  
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
         <div>
           <Field label="Title" name="title" type="text" component={this.renderField}/>
           <Field label="Body" name="body" type="text" component={this.renderField}/>
         </div>
-
+  
         <div>
           <input type="submit" value="Submit" disabled={pristine || submitting}/>
           <Link to="/">Cancel</Link>
           <Link to="/" onClick={this.onDeleteClick}>Delete</Link>
         </div>   
       </form>
-    )
-  } 
+    );
+  }
 }
 
 const validate = (values) => {

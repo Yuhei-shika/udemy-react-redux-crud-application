@@ -19,8 +19,9 @@ export const postEvent = values => async dispatch => {
 
 export const getEvent = id => async dispatch => {
     const response = await axios.get(`${ROOT_URL}/events/${id}${QUERYSTRING}`)
+    console.log('getEvent response.data:', response.data)
     dispatch({ type: READ_EVENT, response })
-}
+  }
 
 export const deleteEvent = id => async dispatch => {
     await axios.delete(`${ROOT_URL}/events/${id}${QUERYSTRING}`)
